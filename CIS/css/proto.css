@@ -1,0 +1,141 @@
+body {
+	background-color: #0a3;
+	font-family: 微软雅黑,幼圆,Arial;
+	overflow: hidden;
+}
+
+#dashbord {
+	width: 1280px;
+	height: 640px;
+	position: absolute;  
+	left: 50%;  
+	top: 50%;  
+	margin: -320px 0 0 -640px;
+	background-color: #eee;
+	border-radius: 5px;
+}
+
+.tile {
+	height: 240px;
+	border-radius: 5px;
+	background-color: #fff;
+	position: relative;
+	display: inline-block;
+	box-shadow: 1px 1px 2px #888;
+	margin: 10px 10px;
+}
+
+.tile>.title {
+	position: absolute;
+	font-size: 20px;
+	top: 20px;
+	left: 10px;
+}
+
+.tile-1 {
+	width: 240px;
+}
+
+.tile-2 {
+	width: 505px;
+}
+
+#task_tile>.tile_container {
+	text-align: left;
+	font-size: 18px;
+	position: absolute;
+	left: 20px;
+	top: 70px;
+}
+
+#task_tile>.tile_container>p>.num {
+	font-size: 18px;
+	color: #328;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#info_tile>.tile_container {
+	text-align: left;
+	font-size: 18px;
+	position: absolute;
+	left: 20px;
+	top: 70px;
+}
+
+#info_tile>.tile_container>p>.date {
+	font-size: 18px;
+	color: #328;
+	margin-right: 20px;
+}
+
+#info_tile>.tile_container>p>.news {
+	font-size: 18px;
+}
+
+#lifeline_tile>.input-group {
+	position: absolute;
+	top: 80px;
+	left: 10px;
+	width: 220px;
+}
+
+#search_tile>.input-group {
+	position: absolute;
+	top: 80px;
+	left: 10px;
+	width: 220px;
+}
+
+#search_tile>.radio {
+	position: absolute;
+	top: 130px;
+	left: 10px;
+	width: 220px;
+}
+
+#summury_tile>.tile_container {
+	text-align: left;
+	font-size: 18px;
+	position: absolute;
+	left: 20px;
+	top: 70px;
+}
+
+#summury_tile>.tile_container>p>.num {
+	font-size: 18px;
+	color: #328;
+	margin-left: 20px;
+}
+
+.tile_line_1,.tile_line_2 {
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.master {
+	display: inline-block;
+	position: relative;
+	width: 300px;
+	height: 588px;
+	background-color: #fff;
+	border-radius: 5px;
+	top: 66px;
+	left: 43px;
+	overflow-y: auto;
+	text-align: left;
+}
+
+.detail {
+	display: inline-block;
+	position: relative;
+	width: 979px;
+	height: 588px;
+	background-color: #cef;
+	border-radius: 5px;
+	text-align: left;
+	padding: 10px 10px;
+	top: 66px;
+	left: 40px;
+	overflow-y: auto; 
+}

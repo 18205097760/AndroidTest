@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>化工区化学品环境安全信息管理系统</title>
+
+<!-- Bootstrap -->
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/proto.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+	<div id="dashbord">
+		
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+			      <a class="navbar-brand" href="#">
+			      	化工区化学品环境安全信息管理系统
+			      </a>
+				</div>
+				<div class="collapse navbar-collapse">
+			      	<script type="text/javascript">
+			      		function route(id){
+			      			var $ul = $("ul.nav.navbar-nav.navbar-right");
+			      			var $pre = $ul.children(".active");
+			      			$pre.toggleClass("active");
+			      			switch(id){
+			      				case 0: 
+			      					$("#comppanel").hide();
+			      					$("#chemipanel").hide();
+			      					$("#managepanel").hide();
+			      					$("#dashpanel").show();
+			      					break;
+			      				case 1:
+			      					$("#chemipanel").hide();
+			      					$("#dashpanel").hide();
+			      					$("#managepanel").hide();
+			      					$("#comppanel").show();
+			      					break;
+			      				case 2:
+			      					$("#comppanel").hide();
+			      					$("#dashpanel").hide();
+			      					$("#managepanel").hide();
+			      					$("#chemipanel").show();
+			      					break;
+			      				case 3:
+			      					$("#comppanel").hide();
+			      					$("#dashpanel").hide();
+			      					$("#chemipanel").hide();
+			      					$("#managepanel").show();
+			      				default:
+			      					break;
+			      			}
+			      			$ul.children().eq(id).toggleClass("active");
+			      		}
+
+			      	</script>
+			      <ul class="nav navbar-nav navbar-right">
+			      	<li class="active" id="gohome">
+			      		<a href="#dashpanel" onclick="route(0)">首页</a>
+			      	</li>
+			      	<li id="gocomp">
+			      		<a href="#comppanel" onclick="route(1)">企业信息</a>
+			      	</li>
+			      	<li id="gochemi">
+			      		<a href="#chemipanel" onclick="route(2)">化学品信息</a>
+			      	</li>
+			      	<li id="gomanage">
+			      		<a href="#managepanel" onclick="route(3)">化学品管理</a>
+			      	</li>
+			      </ul>
+			      	<form class="navbar-form navbar-right">
+					  <div class="form-group">
+					   		<select class="form-control">
+								<option>江苏省南京市南京化学工业园区</option>
+								<option>江苏省泰州市中国精细化工（泰兴）开发园区</option>
+							</select>
+					  </div>
+					</form>
+				</div>
+			</div>
+		</nav>
+		
+		<div id="dashpanel"> 
+			<div class="tile_line_1">
+					<div class="tile tile-1" id="summury_tile">
+						<p class="title">统计信息</p>
+						<div class="tile_container">
+							<p>企业数量&nbsp;&nbsp;&nbsp;<span class="num">85</span></p>
+							<p>化学品种类<span class="num">284</span></p>
+							<img src="./img/chart.png" width="200px">
+						</div>
+					</div>
+					<div class="tile tile-1" id="search_tile">
+						<p class="title">快速查询</p>
+						<div class="input-group">
+					      <input type="text" class="form-control" placeholder="查询...">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+					      </span>
+					    </div><!-- /input-group -->
+					    <div class="radio">
+					    <label class="radio-inline">
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 搜企业
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 搜化学品
+						</label>
+					    </div>
+					</div>
+					<div class="tile tile-1" id="lifeline_tile">
+						<p class="title">化学品生命周期路线图</p>
+						<div class="input-group">
+					      <input type="text" class="form-control" placeholder="化学品名称">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+					      </span>
+					    </div><!-- /input-group -->
+					</div>
+
+				</div>
+
+				<div class="tile_line_2">
+
+					<div class="tile tile-1" id="task_tile">
+						<p class="title">待办事务</p>
+						<div class="tile_container">
+							<p>企业登记证待更换<span class="num">3</span>家</p>
+							<p>企业信息变更审核<span class="num">4</span>条</p>
+							<p>企业经营资质待审核<span class="num">5</span>家</p>
+						</div>
+					</div>
+					<div class="tile tile-2" id="info_tile">
+						<p class="title">最新消息</p>
+						<div class="tile_container">
+							<p><span class="date">2015-10-11</span><span class="news">省环保厅举行苯交通事故综合应急演习</span></p>
+							<p><span class="date">2015-10-10</span><span class="news">省环保厅公布2起环境违法案件查处情况</span></p>
+							<p><span class="date">2015-01-01</span><span class="news">省政府机关职能介绍及联系方式汇总</span></p>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div><!-- DashPanel End -->
+
+
+		<div id="comppanel" hidden>
+
+		<div class="master">
+			<div class="input-group">
+					      <input type="text" class="form-control" placeholder="查询...">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+					      </span>
+			</div><!-- /input-group -->
+			<div class="list-group comp-list-group">
+			  <a href="#" id="#qiaonasi" class="list-group-item active">南京乔斯化工有限公司</a>
+			  <a href="#" id="#sanyuan" class="list-group-item">南京三元物流有限公司</a>
+			  <a href="#" id="#wanshou" class="list-group-item">泰兴万寿有限责任公司</a>
+			  <a href="#" id="#changyun" class="list-group-item">镇江昌运危废处理公司</a>
+			</div>
+		</div>
+
+		<div id="qiaonasi" class="detail">
+			<h1>南京乔斯化工有限公司</h1>
+			<h3>企业基本信息<span class="fadeButton glyphicon glyphicon-chevron-down"></span></h3>
+			<div>
+			<table class="table">
+			  <tr>
+			  	<th>企业名称</th><td>南京乔斯化工有限公司</td>
+			  	<th>审核状态</th><td> 已审核</td>
+			  </tr>
+			  <tr>	
+				<th>企业类型</th><td>化学品生产使用企业</td>
+				<th>所属行业</th><td>其他基础化学原料制造 </td>
+				</tr>
+			  <tr>	
+				<th>所在化工区</th><td>南京化学品工业园区 </td>
+				<th>所属环保局</th><td>六合区环保局 </td>
+			  </tr>
+			   <tr>	
+				<th>组织机构代码</th><td>69044018|4</td>
+				<th>法定代表人</th><td> 张利</td>
+			  </tr>
+	 		   <tr>	
+				<th>工商注册号</th><td>320100400031325 </td>
+				<th>注册地址</th><td>南京市六合区方水路168号1室 </td>
+			  </tr>
+			   <tr>	
+				<th>注册资金（万元）</th><td>1000 </td>
+				<th>厂区面积（㎡）</th><td>10000 </td>
+			  </tr>
+			   <tr>	
+				<th>企业规模（人）</th><td> 100</td>
+				<th>年生产时间（小时）</th><td>7200 </td>
+			  </tr>
+			   <tr>	
+				<th>建厂时间</th><td> 2000/11/1</td>
+				<th>最近扩建时间</th><td> 无</td>
+			  </tr>
+			   <tr>	
+				<th>联系人</th><td>王龙 </td>
+				<th>联系方式</th><td>电话:1361680001 &nbsp;邮箱:wanglong@qq.com </td>
+			  </tr>
+			</table>
+		</div>
+			<h3>建设项目<span class="fadeButton glyphicon glyphicon-chevron-right"></span></h3>
+			<div hidden>
+			<table class="table">
+			  <tr>
+			  	<th width="10%">项目名称</th>
+			  	<th width="10%">产品名称</th>
+			  	<th width="15%">生产规模（t/a）</th>
+			  	<th width="15%">主要原料名称</th>
+			  	<th width="40%">工艺情况（名称加流程）</th>
+			  	<th width="10%">备注</th>
+			  </tr>
+			  <tr>	
+				<td>年产10000吨/年<br>30%氰化钠</td>
+				<td>氰化钠</td>
+				<td>10000</td>
+				<td>轻油（或汽油）<br>液氨<br>烧碱</td>
+				<td>1．氰化氢气体的制备与净化<br>
+					液氨经汽化器汽化后与汽油在文丘里管中混合，然后通过预热器加热到250℃~280℃进进裂解炉底部。炉内三相石墨电极浸进石油焦粒沸腾床层中，由于大电流导电发热作用，原料气在1450℃高温、微负压条件下发生裂解反应：
+					CnH2n+n+nNH3→nNCN+（2n+1）H2
+					2NH3→N2+3H2
+					CnH2n+2→nC+(n+1)H2
+					天生以氰化氢、氢气为主并含有少量氮气和炭粉的裂解物，经换热冷却及旋风、布袋除尘器先后脱除炭粉，得到纯净裂解炉气。<br>
+					2．液氰制备<br>
+					纯净裂解炉气通进中和罐，与其中的液体氢氧化钠发生中和反应：
+					HCN+NaOH→NaCH+H2O
+					天生液氰。未反应的气体进进尾气吸收罐用液碱进一步吸收后，通过真空泵排至烟囱。尾气的主要成分是氢气。<br>
+					3．固氰制备<br>
+					液氰被送进节发器中，在负压条件下加热蒸发，蒸出的水蒸气用水冷凝，不凝气用真空泵抽送至烟囱。经蒸发浓缩后的母液进进结晶器，用水冷却降温，固液混合物排放到离心机中进行固液分离，固体产品称重装桶。为进一步减少固氰含水量，有的厂家在离心分离后增加一道烘干除水工序。</td>
+				<td>无</td>
+			  </tr>
+			</table>
+		</div>
+			<h3>污染防控<span class="fadeButton glyphicon glyphicon-chevron-right"></span></h3>
+			<div hidden>
+			<table class="table">
+			  <tr>
+			  	<th>(一)废水</th>
+			  </tr>
+			  <tr>
+			  	<th>序号</th>
+			  	<th>废水类型/产生工序</th>
+			  	<th>主要污染物</th>
+			  	<th>处置设施</th>
+			  	<th>废水去向</th>
+			  	<th>废水量（吨/年）</th>
+			  </tr>
+			  <tr>	
+				<td>1</td>
+				<td>中和反应过程</td>
+				<td>氰化钠、氢氧化钠</td>
+				<td>循环回收利用，结合活性炭吸附</td>
+				<td>污水处理厂</td>
+				<td>100</td>
+			  </tr>
+			  <tr>
+			  	<th>(二)废气</th>
+			  </tr>
+			  <tr>
+			  	<th>序号</th>
+			  	<th>废水类型/产生工序</th>
+			  	<th>主要污染物</th>
+			  	<th>处置设施</th>
+			  	<th>废气去向</th>
+			  	<th>废气量（吨/年）</th>
+			  </tr>
+			  <tr>	
+				<td>1</td>
+				<td>裂解炉尾气</td>
+				<td>氢气</td>
+				<td>回收结合放空燃烧法</td>
+				<td>高空</td>
+				<td>10</td>
+			  </tr>
+			  <tr>
+			  	<th>(三)危废</th>
+			  </tr>
+			  <tr>
+			  	<th>序号</th>
+			  	<th>危废名称及类别</th>
+			  	<th>主要污染物</th>
+			  	<th>危废去向</th>
+			  	<th>设施/接受单位名称</th>
+			  	<th>危废量（吨/年）</th>
+			  </tr>
+			 	<tr><td>1</td>	<td>HW12</td>	<td>除尘器排出的炭粉</td>	<td>焚烧法</td>	<td>企业自行处置</td>	<td>8</td></tr>
+				<tr><td>2</td>	<td>HW06</td>	<td>裂解炉产生的石油焦渣</td>	<td>焚烧法</td>	<td>企业自行处置</td>	<td>2</td></tr>
+			</table>
+		</div>
+			<h3>法律法规遵守<span class="fadeButton glyphicon glyphicon-chevron-right"></span></h3>
+			<div hidden>
+			<table class="table">
+			<tr><th>（一）行政许可情况	</th> </tr>				
+			<tr><th>序号</th>	<th>许可文件名称	</th><th>文号/编号</th>	<th>审批/发证机关</th>	<th>批复时间/有效期限</th>	<th>备注</th></tr>		
+			<tr><td>1</td><td>化学品环境管理登记证</td>	<td>201501010001   </td> 	<td>江苏省环保厅</td>	   <td>2015   年  1  月  1  日</td><td></td></tr>			
+			<tr><td>2</td>	<td>环境影响评价文件批复</td>	<td>南环[2010]12号</td>	<td>南京市环保局</td>	   <td>2010   年  1  月  12  日	</td><td></td></tr>		
+			<tr><td>3</td>	<td>建设项目竣工环境保护验收审批文件</td>	<td>南环验[2013]32号</td>	   <td>	南京市环保局</td> <td>2013   年  10  月  1 日</td>	<td></td></tr>		
+			<tr><td>4</td>	<td>污染物排放许可证</td>	<td>321023201300024</td>    	<td>六合区环保局</td>	   <td>2013   年  6  月  2 日</td>	<td></td></tr>		
+			</table>
+			<table class="table">
+			<tr><th>（二）清洁生产审核情况	</th> </tr>				
+			<tr>
+				<th>清洁生产审核开展情况</th>	
+				<th>清洁生产审核评估情况</th>
+				<th>清洁生产审核验收情况</th>	
+				<th>最近一次审核评估或验收时间</th>	
+				<th>批复时间/有效期限</th>	
+				<th>备注</th>
+			<tr>
+				<td><label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" checked >开展
+			  		</label>
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" >无开展
+			  		<label>
+			  	</td>
+				<td><label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" checked >已评估
+			  		</label>
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" >未评估
+			  		<label>
+			  	</td>
+				<td><label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" checked >已验收
+			  		</label>
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" >未验收
+			  		<label>
+			  	</td>
+				<td>南京市环保局</td>
+				<td>       2015    年  8   月</td>
+				<td></td>
+			</tr>
+			</table>
+			<table class="table">
+			<tr><th>（三）突发环境事件应急预案情况	</th> </tr>		
+			<tr>
+				<th>环境应急预案编制情况</th>	
+				<th>环境应急预案演练情况</th>
+				<th>环境应急预案备案情况</th>	
+				<th></th>	
+				<th>备   注</th>
+			<tr>
+			<tr>
+				<td><label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" checked >有
+			  		</label>
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" >无
+			  		</label>
+			  			<br>编制时间   2012  年 3  月<br>
+			  	</td>
+				<td><label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" checked >演练
+			  		</label>
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" >未演练
+			  		</label>
+			  			<br>演练次数      2 次/年<br>
+			  	</td>
+				<td><label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" checked >已备案
+			  		</label>
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" >未备案
+			  		</label>
+			  		<br>备案时间   年    月<br>
+			  	</td>
+				<td>备案文号<br>备案单位 <br></td>
+				<td></td>
+			</tr>
+			</table>
+			<table class="table">
+			<tr><th>（四）环境污染事故情况	</th> </tr>		
+			<tr>
+				<th>环境污染事故情况</th>	
+				<th>次数</th>
+				<th>公示内容</th>	
+			<tr>
+			<tr>
+				<td><label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" checked >有
+			  		</label>
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" >无
+			  		</label>
+			  			<br>编制时间   2012  年 3  月<br>
+			  	</td>
+				<td></td>
+				<td></td>
+				<td>备案文号<br>备案单位 <br></td>
+				<td></td>
+			</tr>
+			</table>
+		</div>
+			<h3>企业厂区平面图<span class="fadeButton glyphicon glyphicon-chevron-right"></span></h3>
+			<div hidden>
+			<img src="./img/comp.png">
+		</div>
+		</div><!-- Master1 End -->
+
+	</div>
+
+	<div id="chemipanel" hidden>
+		<div class="master">
+			<div class="input-group">
+					      <input type="text" class="form-control" placeholder="查询...">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+					      </span>
+			</div><!-- /input-group -->
+			<div class="list-group">
+			  <a href="#" class="list-group-item active">
+			  	<h4 class="list-group-item-heading">氰化钠</h4><p class="list-group-item-text">NaCN</p><p class="list-group-item-text">143-33-9</p>
+			  </a>
+			   <a href="#" class="list-group-item">
+			  	<h4 class="list-group-item-heading">苯</h4><p class="list-group-item-text">C6H6</p><p class="list-group-item-text">71-43-2</p>
+			  </a>
+			  <a href="#" class="list-group-item">
+			  	<h4 class="list-group-item-heading">壬基酚</h4><p class="list-group-item-text">C15H24O</p><p class="list-group-item-text">25154-52-3</p>
+			  </a>
+			  <a href="#" class="list-group-item">
+			  	<h4 class="list-group-item-heading">环氧乙烷</h4><p class="list-group-item-text">C2H4O</p><p class="list-group-item-text">75-21-8</p>
+			  </a>
+			</div>
+		</div>
+
+		<div class="detail">
+			<h1>氰化钠 </h1>
+			<h3>基本信息<span class="fadeButton glyphicon glyphicon-chevron-down"></span></h3>
+			<div>
+			<table class="table">
+			  <tr>
+			  	<th>中文名称</th><td>氰化钠</td>
+			  	<th>英文名称</th><td>Sodium cyanide</td>
+			  </tr>
+			  <tr>	
+				<th>中文别名</th><td>山奈、山奈钠</td>
+				<th>分子式</th><td>NaCN</td>
+				</tr>
+			  <tr>	
+				<th>分子量</th><td>49.01</td>
+				<th>CAS号</th><td>143-33-9 </td>
+			  </tr>
+			  <tr>
+			  	<th>管理类别</th>
+			  	<td colspan="3">
+			  		<div class="radio">
+			  		<label>
+			  			<input type="radio" name="inlineRadioOptions" id="ctr1" value="option1" >类别1：重点环境管理危险类化学品
+			  		</label>
+			  		<br>
+			  		<label>
+			  		<input type="radio" name="inlineRadioOptions" id="ctr2" value="option2" checked>类别2A：一般危险化学品；类别2B：其他危险类化学品
+			  	</label>
+			  	<br>
+			  	<label>
+			  		<input type="radio" name="inlineRadioOptions" id="ctr3" value="option3" >类别3：非危险类化学品
+			  	</label>
+			  	</div>
+			  	</td>
+			  </tr>
+			</table>
+		</div>
+			<h3>危害信息<span class="fadeButton glyphicon glyphicon-chevron-right"></span></h3>
+			<div hidden>
+			<table class="table">
+			  <tr>
+			  	<th>环境危害</th>
+			  </tr>
+			   <tr>
+			  	<th></th><td>对水生生物毒性极大，具有长期持续影响</td>
+			  </tr>
+			  <tr>	
+				<th>健康危害</th>
+			  </tr>
+			  <tr>
+			  	<th></th><td>急性毒性：吞咽致命&nbsp;接触皮肤致命&nbsp;吸入致命</td>
+			  </tr>
+			   <tr>
+			  	<th></th><td>眼睛/皮肤刺激性：严重刺激眼睛、皮肤和呼吸道。</td>
+			  </tr>
+			   <tr>
+			  	<th></th><td>短期/单次接触影响：可能对细胞呼吸有影响，导致惊厥和神志不清。</td>
+			  </tr>
+			   <tr>
+			  	<th></th><td>长期/反复接触影响：可能对甲状腺有影响。 </td>
+			  </tr>
+			  <tr>	
+				<th>物理危险</th>
+			  </tr>
+			  <tr>	
+				<th></th><td>无 </td>
+			  </tr>
+			</table>
+		</div>
+			<h3>安全信息<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+			  <tr>
+			  	<th width="10%">安全防护</th>
+			  </tr>
+			  	<tr><th></th><td width="10%">工程控制：</td><td width="50%">严加密闭，提供充分的局部排风和全面通风。<br>尽可能机械化、自动化。提供安全淋浴和洗眼设备。</td></tr>
+				<tr><th></th><td>呼吸系统防护：</td><td>可能接触毒物时，必须佩戴头罩型电动送风过滤式防尘呼吸器。<br>紧急事态抢救或撤离时，建议佩戴自给式呼吸器。</td></tr>
+				<tr><th></th><td>眼睛防护：</td><td>呼吸系统防护中已作防护。</td></tr>
+				<tr><th></th><td>身体防护：</td><td>穿连衣式胶布防毒衣，戴橡胶手套。</td></tr>
+				<tr><th></th><td>其他防护：</td><td>工作现场禁止吸烟、进食和饮水。工作完毕，彻底清洗。<br>单独存放被毒物污染的衣服，洗后备用。<br>车间应配备急救设备及药品。<br>作业人员应学会自救互救。</td></tr>
+				<tr><th></th><td>监测方法：	</td><td>异菸酸钠－巴比安酸钠比色法</td></tr>
+				<th>操作与储存</th><td></td>
+			  </tr>
+			  <tr><th></th><td>操作事项：</td><td>严格按照工程控制要求进行防护操作。<br>
+				操作人员必须经过专门培训，严格遵守操作规程。<br>
+				避免产生粉尘；避免与氧化剂、酸类接触。<br>
+				搬运时要轻装轻卸，防止包装及容器损坏。<br>
+				配备泄漏应急处理设备。<br>
+				倒空的容器可能残留有害物。</td></tr>
+				<tr><th></th><td>储存事项：</td><td>包装密封。<br>
+				储存于阴凉、干燥、通风良好的库房，库内相对湿度不超过80%。<br>
+				远离火种、热源。<br>
+				应与氧化剂、酸类、食用化学品分开存放，切忌混储。<br>
+				储区应备有合适的材料收容泄漏物。<br>
+				应严格执行极毒物品“五双”管理制度。</td>
+			  </tr>
+			  <tr>	
+				<th>运输信息</th><td></td>
+			  </tr>
+			  <tr><th></th><td></td><td>处置前应参阅国家和地方有关法规。逐渐加入无水异丙醇或无水正丁醇内，静置24小时，经稀释后放入废水系统。</td></tr>
+			  <tr>	
+				<th >废弃处置</th>
+			  </tr>
+			  	<tr><th></th><td>皮肤接触 ：</td><td>立即脱去被污染的衣着，用流动的清水或5%硫代硫酸溶液彻底冲洗至少20分钟，就医。 </td></tr>
+				<tr><th></th><td>眼睛接触：</td><td>立即提起眼睑，用大量流动清水或生理盐水彻底冲洗至少15分钟。就医。 </td></tr>
+				<tr><th></th><td>吸入：</td><td>迅速脱离现场至空气新鲜处。保持呼吸道通畅。如呼吸困难，给输氧。呼吸心跳停止时，立即进行人工呼吸(勿用口对口）和胸外心脏按压术。给吸入亚硝酸异戊酯，就医。 </td></tr>
+				<tr><th></th><td>食入：</td><td>	饮足量温水，催吐，用1：5000高锰酸钾或5%硫代硫酸钠溶液洗胃。就医。 </td></tr>
+				<tr><th></th><td>灭火方法：</td><td>	本品不燃。发生火灾时应尽量抢救商品，防止包装破损，引起环境污染。消防人员须佩戴防毒面具、穿全身消防服。灭火剂：干粉、砂土。禁止用二氧化碳和酸碱灭火剂灭火。 </td></tr>
+			  <tr>	
+				<th>急救措施</th>
+			  </tr>
+			  <tr>	
+				<th>应急处置</th>
+			  </tr>
+			  <tr><th></th><td></td><td>对泄漏物处理必须戴好防毒面具与手套，扫起，倒至大量水中。
+			污染区用NaClO溶液或漂白粉浸光24小时后，用大量水冲洗，洗水放入废水系统统一处理。
+			对HCN则应将气体送至通风橱或将气体导入碳酸钠溶液中，加等量的NaClO，以6mol/L NaOH中和，污水放入废水系统做统一处理。</td></tr>
+			</table>
+		</div>
+			<h3>理化数据<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+			  <tr>
+			  	<th>主要成分</th><td>纯品</td>
+			  </tr>
+			  <tr>	
+				<th>外观和形状</th><td>无色透明液体，有强烈芳香味</td>
+			  </tr>
+			  <tr>	
+				<th>PH</th><td>— </td>
+			  </tr>
+			  <tr>	
+				<th>熔点(℃)</th><td>5.5</td>
+			  </tr>
+			  <tr>	
+				<th>沸点(℃)</th><td>80.1</td>
+			  </tr>
+			  <tr>	
+				<th>相对密度(水=1)</th><td>0.88</td>
+			  </tr>
+			  <tr>	
+				<th>相对蒸汽密度(空气=1)</th><td>2.77</td>
+			  </tr>
+			  <tr>	
+				<th>饱和蒸气压(kPa)</th><td>13.33(26.1℃)</td>
+			  </tr>
+			   <tr>	
+				<th>燃烧热(kJ/mol)</th><td>3264.4</td>
+			  </tr>
+			  <tr>	
+				<th>临界温度(℃)</th><td>289.5</td>
+			  </tr>
+			  <tr>	
+				<th>临界压力(MPa)</th><td>4.92</td>
+			  </tr>
+			   <tr>	
+				<th>辛醇/水分配系数的对数值</th><td>2.15</td>
+			  </tr>
+			  <tr>	
+				<th>闪点(℃)</th><td>-11</td>
+			  </tr>
+			    <tr>	
+				<th>引燃温度(℃</th><td>560</td>
+			  </tr>
+			    <tr>	
+				<th>爆炸上限%(V/V)</th><td>8</td>
+			  </tr>
+			    <tr>	
+				<th>爆炸下限%(V/V)</th><td>1.2</td>
+			  </tr>
+			    <tr>	
+				<th>溶解性</th><td>不溶于水，溶于醇、醚、丙酮等多数有机溶剂。</td>
+			  </tr>
+			    <tr>	
+				<th>主要用途</th><td>用作溶剂及合成苯的衍生物、香料、染料、塑料、医药、炸药、橡胶等。</td>
+			  </tr>
+			    <tr>	
+				<th>其它理化性质</th><td>无</td>
+			  </tr>
+			</table>
+		</div>
+			<h3>参考资料<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+		<div hidden>
+			<table class="table">
+				<tr><td>[1] http://www.basechem.org/chemical/2689;	</td></tr>
+				<tr><td>[2] http://www.safe.nite.go.jp/english/ghs/06-imcg-0028e.html;		</td></tr>
+				<tr><td>[3] http://www.epa.govt.nz/search-databases/Pages/ccid-details.aspx?SubstanceID=1940;</td></tr>		
+				<tr><td>[4] http://toxnet.nlm.nih.gov/cgi-bin/sis/search/r?dbs+hsdb:@term+@na+SODIUM%20CYANIDE;		</td></tr>
+				<tr><td>[5] http://www.somsds.com/detail.asp?id=-1676719384.		</td></tr>
+			</table>
+			</div>
+		</div>
+	</div>
+
+	<div id="managepanel" hidden>
+		<div class="master">
+			<div class="input-group">
+					      <input type="text" class="form-control" placeholder="查询...">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+					      </span>
+			</div><!-- /input-group -->
+			<div class="list-group">
+			  <a href="#" class="list-group-item active">
+			  	<h4 class="list-group-item-heading">氰化钠</h4>
+			  	<p class="list-group-item-text">143-33-9</p>
+				<p class="list-group-item-text">类别1 重点管理危险类化学品</p>
+				<p class="list-group-item-text">南京乔斯化工有限公司</p>
+				<p class="list-group-item-text">10000吨/年</p>
+			  </a>
+			  <a href="#" class="list-group-item">
+			  	<h4 class="list-group-item-heading">壬基酚</h4>
+			  	<p class="list-group-item-text">25154-52-3</p>
+				<p class="list-group-item-text">类别1 重点管理危险类化学品</p>
+				<p class="list-group-item-text">南京乔斯化工有限公司</p>
+				<p class="list-group-item-text">8000吨/年</p>
+			  </a>
+			  <a href="#" class="list-group-item">
+			  	<h4 class="list-group-item-heading">环氧乙烷</h4>
+			  	<p class="list-group-item-text">75-21-8</p>
+				<p class="list-group-item-text">类别1 重点管理危险类化学品</p>
+				<p class="list-group-item-text">南京乔斯化工有限公司</p>
+				<p class="list-group-item-text">7500吨/年</p>
+			  </a>
+			</div>
+		</div>
+
+		<div class="detail">
+			<h1>氰化钠</h1>
+			<table class="table">
+			  <tr>
+			  	<th>CAS号:143-33-9</td>
+			  </tr>
+			  <tr>	
+				<th>类别1:重点管理危险类化学品</td>
+			</tr>
+				<th>化学品安全数码标签</th><td><img src="./img/2dcode.jpg"></td>
+			</table>
+			<h3>登记管理<span class="fadeButton glyphicon glyphicon-chevron-down"></h3>
+			<div>
+			<table class="table">
+			  <tr>
+			  	<th> 登记信息</th>
+			  </tr>
+			  <tr>	
+				<th></th><th>登记日期</th><td>2012.03.02</td>
+			</tr>
+			  <tr>	
+				<th></th><th>登记企业</th><td>南京乔斯化工有限公司 </td>
+			  </tr>
+			  <tr>	
+				<th></th><th>登记号</th><td>320112022330279 </td>
+			  </tr>
+ 			  <tr>	
+				<th></th><th>登记号</th><td>生产企业 </td>
+			  </tr>
+			   <tr>	
+				<th></th><th>活动类型</th><td>320112022330279 </td>
+			  </tr>
+			   <tr>	
+				<th></th><th>产品规格</th><td>99.5% </td>
+			  </tr>
+			  <tr>
+			  	<th>联系人信息</th>
+			  </tr>
+			  <tr>	
+				<th></th><th>登记人员</th><td>王龙 </td>
+			  </tr>
+			  <tr>	
+				<th></th><th>联系方式</th><td>1361680001</td>
+			  </tr>
+			</table>
+		</div>
+			<h3>生产管理<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+			 <tr>
+			  	<th>生产信息</th>
+			 </tr>
+			 <tr>
+			  	<th></th><th>生产时间</th><td>2014.10.10 15:50</td>
+			 </tr>
+			 <tr>
+			  	<th></th><th>生产企业</th><td>南京乔斯化工有限公司</td>
+			 </tr>
+			 <tr>	
+				<th></th><th>登记管理</th><td>正常</td>
+			 </tr>
+			 <tr>
+				<th></th><th>生产位置</th><td>车间1#</td>
+			 <tr>
+				<th></th><th>实时生产量</th><td>50吨</td>
+			 </tr>
+			 <tr>	
+				<th></th><th>本月累计生产量</th><td>1000吨</td>
+			 <tr>	
+				<th></th><th>本年累计生产量</th><td>7800吨</td>
+			 </tr>
+	 		 <tr>	
+				<th></th><th>是否超批复生产</th><td>否</td>
+			 </tr>
+			  <tr>
+			  	<th>联系人信息</th>
+			 </tr>
+			  <tr>	
+				<th></th><th>车间管理人员</th><td>李明</td>
+			 <tr>
+				<th></th><th>联系方式</th><td>1361680009</td>
+			  </tr>
+			</table>
+		</div>
+			<h3>储存管理<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+			 <tr>
+			  	<th width="10%">存储信息</th>
+			 </tr>
+			 <tr><th></th><th>入库时间</th><td>2014.10.10 15:58</td></tr>
+			<tr><th></th><th>储存企业</th><td>南京乔斯化工有限公司</td></tr>
+			<tr><th></th><th>化学品来源</th><td>南京乔斯化工有限公司、生产企业、生产车间1#、2014.10.10 15:50生产</td></tr>
+			<tr><th></th><th>储存位置</th><td>成品库3#仓位</td></tr>
+			<tr><th></th><th>实时储存量（吨）</th><td>50</td></tr>
+			<tr><th></th><th>实时累计储存量（吨）</th><td>100</td></tr>
+			<tr><th></th><th>是否超储存上限</th><td>否</td></tr>
+			</table>
+			<table class="table">
+			 <tr>
+			  	<th>联系人信息</th>
+			 </tr>
+			 <tr><th></th><th >仓库管理员</th><td>王虎</td></tr>
+			 <tr><th></th><th>联系方式</th><td>18907766770</td></tr>
+			  <tr>
+			  	<th>管理信息</th>
+			 </tr>
+			 <tr><th></th><th>仓库应急管理</th></tr>		
+			<tr><th></th><th></th><th>安全数码标签</th><td><img src="./img/2dcode.jpg"></td></td></tr>
+			<tr><th></th><th></th><th>消防物资储备</th><td>	消防栓3个、灭火器4个、防毒面具4个、医药箱1个、担架3个</td></tr>
+			<tr><th></th><th></th><th>紧急联系人公示</th><td>	王虎  18907766770</td></tr>
+			<tr><th></th><th>仓库例行查检		</th></tr>	
+			<tr><th></th><th></th><th>包装是否破损或泄露</th><td>	否</td></tr>
+			<tr><th></th><th></th><th>场所温度湿度</th><td>	20摄氏度，30%</td></tr>
+			<tr><th></th><th></th><th>消防物资是否有效</th><td>	否</td></tr>
+			<tr><th></th><th>电脑实时监控</th><td colspan ="2"><img src="./img/storage.png" width="400px"></td></tr>		
+			</table>
+		</div>
+			<h3>运输管理<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+				<tr><th>运输信息</th></tr>		
+				 <tr><th></th><th>出库时间</th><td>	2014.10.15 09:30</td></tr>
+				 <tr><th></th><th>出厂时间</th><td>	2014.10.15 11:07</td></tr>
+				 <tr><th></th><th>运输企业	</th><td>南京三元物流有限责任公司</td></tr>
+				 <tr><th></th><th>运输资质有效性</th><td>	是</td></tr>
+				 <tr><th></th><th>化学品来源	</th><td>南京乔斯化工有限公司、生产企业、成品库3#仓位、2014.10.10 15:58入库</td></tr></td></tr>
+				 <tr><th></th><th>出库数量（吨）</th><td>	50</td></tr>
+				 <tr><th></th><th>终点企业</th><td>	泰兴市万寿有限公司</td></tr>
+				 <tr><th></th><th>运输工具</th><td>	苏A5399</td></tr>
+				 <tr><th></th><th>是否符合化学品运输要求</th><td>	是</td></tr>
+				 <tr><th></th><th>是否超载货上限</th><td>	是</td></tr>
+				<tr><th>联系人信息</th></tr>			
+				 <tr><th></th><th>司机</th><td>    刘贵</td></tr>
+				 <tr><th></th><th>联系方式 </th><td> 13556440354  </td></tr>
+				 <tr><th></th><th> 驾驶资格证	</th><td>有   </td></tr>
+				 <tr><th></th><th> 押车员  </th><td>刘希</td></tr>
+				 <tr><th></th><th>联系方式</th><td>  13556440304 </td></tr>
+				 <tr><th></th><th>押运员证</th><td>  有</td></tr>
+			</table>
+			<table class="table">
+				<tr><th>管理信息</th></tr>			
+				 <tr><th></th><th>实时定位监控	</th><td colspan ="2"><img src="./img/manage.png" width="400px"></td></tr>	
+				 <tr><th></th><th>事故应急管理	</th><th>安全数码标签</th><td><img src="./img/2dcode.jpg"></td></tr>	
+				<tr><th></th><th></th><th>应急实施步骤 	</th><td>扫描标签进行报警<br>自身应急防护<br>驱散周边人群"</td></tr>	
+			</table>
+			</div>
+
+			<h3>经营管理<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+			<tr><th>经营信息</th><tr>		
+				<tr><th></th><th>采购信息</th><tr>		
+				<tr><th></th><th>	采购时间</th><td>	2014.10.15 14:00</td></tr> 
+				<tr><th></th><th>	经营企业</th><td>	泰兴市万寿有限公司</td></tr>
+				<tr><th></th><th>	资质有效性</th><td>	是</td></tr>
+				<tr><th></th><th>	化学品来源</th><td>	南京三元物流有限责任公司、运输企业；<br>南京乔斯化工有限公司、生产企业、成品3#库<br>2014.10.15 09:30出库、 2014.10.15 11:07出厂</td></tr>
+				<tr><th></th><th>	采购总数量</th><td>	50吨</td></tr>
+				<tr><th></th><th>储存信息	</th><tr>	
+				<tr><th></th><th>	入库时间</th><td>	2014.10.15 14:30</td></tr>
+				<tr><th></th><th>	储存位置</th><td>	仓库A</td></tr>
+				<tr><th></th><th>	储存数量</th><td>	0吨</td></tr>
+				<tr><th></th><th>交易信息	 </th><tr>                   	
+				<tr><th></th><th>	交易时间</th><td>	2014.10.18 14:19 </td><td>          2014.10.28 10:04</td></tr>
+				<tr><th></th><th>	交易企业</th><td>	泰兴国兴化工公司 </td><td>          泰兴国兴化工公司</td></tr>
+				<tr><th></th><th>	物流企业</th><td>	安环物流公司     </td><td>          安环物流公司</td></tr>
+				<tr><th></th><th>	资质有效性</th><td>	是              </td><td>           是</td></tr>
+				<tr><th></th><th>	交易数量</th><td>	20吨          </td><td>             29.9吨</td></tr>
+				<tr><th></th><th>废弃回收信息</th><tr>		                    
+				<tr><th></th><th>	废弃/回收时间</th><td>	2015.11.01 11:11 </td></tr>
+				<tr><th></th><th>	处置设施/单位</th><td>	泰州昌运危废处理公司</td></tr>
+				<tr><th></th><th>	资质有效性</th><td>	是</td></tr>
+				<tr><th></th><th>	废弃/回收数量</th><td>	0.1吨        </td></tr>                                     
+			<tr><th>联系人信息		</th><tr>	
+				<tr><th></th><th>交易联系人 </th><td>  陈吉</td></tr>
+			     <tr><th></th><th>联系方式"	</th><td>  13807716000	</td></tr>
+				<tr><th></th><th>仓库联系人</th><td> 陈曼</td></tr>
+			    <tr><th></th><th> 联系方式	 </th><td> 13234236676	</td></tr>
+			<tr><th>管理信息		</th><tr>	
+				<tr><th></th><th>仓库应急管理</th><tr>		
+					<tr><th></th><th>安全数码标签	</td><td><img src="./img/2dcode.jpg"></td></tr>
+					<tr><th></th><th>消防物资储备</th><td>	消防栓3个、灭火器4个、防毒面具4个、医药箱1个、担架3个</td></tr>
+					<tr><th></th><th>紧急联系人公示</th><td>	陈曼  13234236676</td></tr>
+				<tr><th></th><th>仓库例行查检</th><tr>		
+					<tr><th></th><th>包装是否破损或泄露</th><td>	否</td></tr>
+					<tr><th></th><th>场所温度湿度</th><td>	20摄氏度，30%</td></tr>
+					<tr><th></th><th>消防物资是否有效</th><td>	否</td></tr>
+				<tr><th></th><th>电脑实时监控	</th><td colspan ="2"><img src="./img/operatestorage.png" width="400px"></td></tr>
+			</table>
+			</div>	
+
+			<h3>使用管理<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+			<tr>
+			  	<th>使用信息</th>
+			 </tr>
+			 <tr>
+			  	<th></th><th>采购信息</th>
+			 </tr>
+			 <tr>
+			  	<th></th><th>采购时间</th><td>是</td>
+			 </tr>
+			<tr>
+			  	<th></th><th>使用企业</th><td>泰兴国兴化工公司</td>
+			</tr>
+			<tr>
+			  	<th></th><th>资质有效性</th><td>2014.10.18 16:00  </td>
+			 </tr>
+			 <tr>	
+				<th></th><th>化学品来源</th><td>泰兴市万寿有限公司 2014.10.18 14:19交易20吨 安环物流公司运输；<br>泰兴市万寿有限公司 2014.10.28 10:04交易10吨 安环物流公司运输</td>
+			</tr>
+			 <tr>
+			  	<th></th><th>储存信息</th>
+			 </tr>
+			   <tr>	
+				<th></th><th>入库时间</th><td>2014.10.18 16:30 </td><td>2014.10.28 12:44</td>
+			  </tr>
+			   <tr>	
+				<th></th><th>储存位置</th><td>仓库甲  </td><td>仓库甲  </td>
+			  </tr>
+			   <tr>	
+				<th></th><th>储存数量</th><td>20吨</td><td> 10吨</td>
+			  </tr>
+				<tr>
+			  	<th></th><th>使用信息</th>
+			 	</tr>
+			 	<tr>	
+				<th></th><th>生产产品</th><td>丙二腈</td>
+				  </tr>
+				  <tr>	
+					<th></th><th>使用时间</th><td>2014.10.30 8:39</td>
+				  </tr>
+				  <tr>	
+					<th></th><th>使用车间</th><td>转化车间</td>
+				  </tr>
+				<tr>	
+				<th></th><th>化学品使用量</th><td>49.9吨</td>
+				</tr>
+				 <tr>	
+				<th></th><th>进入产品</th><td> 2014.10.30 18:33</th><td>4.83吨</td>
+				</tr>
+				 <tr>	
+				<th></th><th> 进入固废及去向</th><td> 2014.10.30 18:31</th><td> 0.11吨 </td><td> 泰州昌运危废处理公司</td>
+				</tr>
+				 <tr>	
+				<th></th><th>进入废水及去向</th><td>2014.10.30 14:39</th><td>0.05吨</td><td>  泰兴污水处理厂 </td>
+				</tr>
+				 <tr>	
+				<th></th><th>进入废气及去向</th><td>2014.10.30 12:46</th><td>0.01吨</td><td>无组织排空 </td>
+				</tr>
+			</table>
+			<table class="table">
+			<tr>
+			  	<th>联系人信息</th>
+			 </tr>
+			 <tr><th></th><th>车间联系人 </th><td>  王琳</td></tr>
+			     <tr><th></th><th>联系方式"	</th><td>  15847578395	</td></tr>
+				<tr><th></th><th>仓库联系人</th><td> 李楠</td></tr>
+			    <tr><th></th><th> 联系方式	 </th><td> 15847578399	</td></tr>
+			<tr><th>管理信息</th></tr>			
+			<tr><th></th><th>车间管理</th></tr>		
+			<tr><th></th><th>车间应急</th><td><img src="./img/2dcode.jpg"></td></tr>	
+			<tr><th></th><th>车间监控</th><td colspan ="2"><img src="./img/usestorepng.png" width="400px"></td></tr>	
+			<tr><th></th><th>仓库管理</th></tr>		
+			<tr><th></th><th>仓库应急</th><td><img src="./img/2dcode.jpg"></td></tr>	
+			<tr><th></th><th>例行查检</th>	<td>	每月1次，检查包装破损、仓库通风防水性能等正常</td></tr>
+			<tr><th></th><th>仓库监控</th><td colspan ="2"><img src="./img/operatestorage.png" width="400px"></td></tr>	
+			</table>
+			</div>
+
+			<h3>废弃/回收管理<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<table class="table">
+			<tr>
+			  	<th>处置信息</th>
+			 </tr>
+			<tr>
+			  	<th></th><th>处置设施/单位</th><td>泰兴污水处理厂</td><td>泰州昌运危废处理公司</td>
+			  </tr>
+			  <tr>	  	
+			  	<th></th><th>处置时间</th><td>2014.10.30 18:22 </td><td>2015.11.11 11:11</td>
+			  </tr>
+			  <tr>	
+				<th></th><th>处置资质有效性</th><td>有  </td><td>有  </td>
+			 </tr>
+			 <tr>	
+				<th></th><th>废弃来源</th><td>泰兴国兴化工公司 转化车间 氰化钠 2014.10.30 14:39  </td><td>泰兴国兴化工公司 转化车间 氰化钠 2014.10.30 18:31  </td>
+			 </tr>
+			  <tr>	
+				<th></th><th>废弃数量</th><td>0.05吨  </td><td>0.11吨   </td>
+			 </tr>
+			  <tr>	
+				<th></th><th>处置设施</th><td>生化处理池  </td><td>焚烧炉  </td>
+			 </tr>
+			  <tr>	
+				<th></th><th>设施有效率</th><td>90% </td><td> 95% </td>
+			 </tr>
+			  <tr>	
+				<th></th><th>环境排放量</th><td>0.005吨 </td><td> 0.0055吨  </td>
+			 </tr>
+			 <tr>
+			  	<th>联系人信息</th>
+			 </tr>
+			 	<tr><th></th><th>企业联系人 </th><td>  李可</td></tr>
+			     <tr><th></th><th>联系方式"	</th><td>  13932140978	</td></tr>
+				<tr><th></th><th>企业联系人</th><td> 陈诚</td></tr>
+			    <tr><th></th><th> 联系方式	 </th><td> 18901216723	</td></tr>
+			</table>
+			</div>
+			<h3>生命时间轴<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<img src="./img/lifeline.png" width="400px">
+		</div>
+		<h3>GIS展示<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+			<div hidden>
+			<img src="./img/gis.png">
+		</div>
+		<h3>物料平衡表<span class="fadeButton glyphicon glyphicon-chevron-right"></h3>
+		<div hidden>
+		<table class="table">
+			<tr>
+				<th colspan="2">生产</th>
+				<th colspan="2">使用或转化</th>
+				<th colspan="2">最终环境排放</th>
+			</tr>
+			<tr>
+				<th>物质</th>
+				<th>数量/吨</th>
+				<th>物质</th>
+				<th>数量/吨</th>
+				<th>形式</th>
+				<th>数量/吨</th>
+			</tr>
+			<tr>
+				<td rowspan="4">氰化钠</td>
+				<td rowspan="4">50</td>
+				<td rowspan="4">丙二腈</td>
+				<td rowspan="4">48.2</td>
+			</tr>
+			<tr>
+				<th>废水</th>
+				<td>0.5</td>
+			</tr>
+			<tr>
+				<th>废气</th>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<th>固废</th>
+				<td>1.2</td>
+			</tr>
+		</table>
+	</div>
+		</div>
+	
+	</div>
+	
+	</div>
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="lib/jquery/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		var $button = $(".fadeButton");
+		$button.parent().css("cursor","pointer");
+		$button.parent().click(function(){
+			var $context = $(this).children().parent().next();
+			$(this).children().toggleClass("glyphicon-chevron-down");
+			$(this).children().toggleClass("glyphicon-chevron-right");
+			$context.slideToggle();
+		});
+
+		var $compListGroup = $(".comp-list-group a");
+		$compListGroup.click(function(){
+			$compListGroup.removeClass("active");
+			$(this).addClass("active");
+			var id = $(this).attr("id");
+			$("#comppanel").children(".detail").hide();
+			$(id).show();
+		});
+	</script>
+</body>
+</html>
