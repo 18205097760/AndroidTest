@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+     <LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="#d43b3b"
+	    android:orientation="horizontal">
+
+	    <ImageView
+	        android:id="@+id/back"
+	        android:layout_width="0dp"
+	        android:layout_marginTop="10dp"
+	        android:layout_height="30dp"
+	        android:layout_weight="0.2"
+	        android:gravity="center"
+	        android:src="@drawable/left"
+	        android:textColor="#ffffff" />
+	
+	    <TextView
+	        android:id="@+id/title"
+	        android:layout_width="0dp"
+	        android:layout_weight="1"
+	        android:layout_height="50dp"
+	        android:text="化讯通"
+	        android:textColor="#ffffff"
+	        android:textSize="18sp"	        
+	        android:gravity="center"/>
+	    
+	     <ImageView
+	        android:id="@+id/home"
+	        android:visibility="invisible"
+	        android:layout_width="0dp"
+	        android:layout_marginTop="10dp"
+	        android:layout_height="30dp"
+	        android:layout_weight="0.2"
+	        android:gravity="center"
+	        android:src="@drawable/home"
+	        android:textColor="#ffffff" />
+	</LinearLayout>
+
+    <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical" >
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="#bbbbbb" >
+
+             <TextView
+                 android:id="@+id/phy"
+                 android:layout_width="wrap_content"
+                 android:layout_height="30dp"
+                 android:paddingLeft="15dp"
+                 android:gravity="center"
+                 android:textSize="16sp"	 
+                 android:text="物理危害" />
+
+         </LinearLayout>
+
+          <LinearLayout
+                 android:background="@drawable/layout_selecter"
+                 android:clickable="true"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" >
+
+                
+              <TextView
+                  android:id="@+id/t1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="50dp"
+                  android:gravity="left|center"
+                  android:layout_weight="0.8"
+                  android:paddingLeft="15dp"
+                  android:text="无"
+                  android:textSize="16sp" />
+
+              <ImageView
+                  android:id="@+id/imageView3"
+                  android:layout_width="wrap_content"
+                   android:layout_weight="0.2"
+                  android:layout_height="20dp"
+                  android:layout_marginBottom="15dp"
+                  android:layout_marginTop="15dp"
+                  android:src="@drawable/br_next" />
+             </LinearLayout>
+             
+               <ImageView   
+	        android:layout_width="fill_parent"  
+	        android:layout_height="2dp"
+	        android:background="#dddddd"  
+       	 />
+               
+               
+        <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="#bbbbbb" >
+
+             <TextView
+                 android:id="@+id/healthy"
+                 android:layout_width="wrap_content"
+                 android:layout_height="30dp"
+                 android:paddingLeft="15dp"
+                 android:gravity="center"
+                 android:textSize="16sp"	 
+                 android:text="健康危害" />
+
+         </LinearLayout>
+
+          <LinearLayout
+                 android:id="@+id/healthdanger1"
+                 android:background="@drawable/layout_selecter"
+                 android:clickable="true"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" >
+
+                
+              <TextView
+                  android:id="@+id/t2"
+                  android:layout_width="wrap_content"
+                  android:layout_height="50dp"
+                  android:gravity="left|center"
+                  android:layout_weight="0.8"
+                  android:paddingLeft="15dp"
+                  android:text="呼吸或敏化作用"
+                  android:textSize="16sp" />
+
+              <ImageView
+                  android:id="@+id/imageView3"
+                  android:layout_width="wrap_content"
+                   android:layout_weight="0.2"
+                  android:layout_height="20dp"
+                  android:layout_marginBottom="15dp"
+                  android:layout_marginTop="15dp"
+                  android:src="@drawable/br_next" />
+             </LinearLayout>
+             
+               <ImageView   
+	        android:layout_width="fill_parent"  
+	        android:layout_height="2dp"
+	        android:background="#dddddd"  
+       	 />
+               
+               
+        <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="#bbbbbb" >
+
+             <TextView
+  				android:layout_width="wrap_content"
+                 android:layout_height="30dp"
+                 android:paddingLeft="15dp"
+                 android:gravity="center"
+                 android:textSize="16sp"	 
+                 android:text="环境危害" />
+
+         </LinearLayout>
+
+          <LinearLayout
+              	android:id="@+id/envdanger1"
+                 android:background="@drawable/layout_selecter"
+                 android:clickable="true"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" >
+
+                
+              <TextView
+                  android:id="@+id/t3"
+                  android:layout_width="wrap_content"
+                  android:layout_height="50dp"
+                  android:gravity="left|center"
+                  android:layout_weight="0.8"
+                  android:paddingLeft="15dp"
+                  android:text="危害水生环境"
+                  android:textSize="16sp" />
+
+              <ImageView
+                  android:id="@+id/dangername"
+                  android:layout_width="wrap_content"
+                   android:layout_weight="0.2"
+                  android:layout_height="20dp"
+                  android:layout_marginBottom="15dp"
+                  android:layout_marginTop="15dp"
+                  android:src="@drawable/br_next" />
+             </LinearLayout>
+             
+               <ImageView   
+	        android:layout_width="fill_parent"  
+	        android:layout_height="2dp"
+	        android:background="#dddddd"  
+       	 />
+
+     	</LinearLayout>
+
+</LinearLayout>
